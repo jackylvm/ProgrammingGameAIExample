@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 14:29:07
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-21 10:50:55
+ * Last Modified: 2018-12-21 20:54:29
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -45,7 +45,8 @@ cc.Class({
 
         self.setSideFromHeading();
 
-        self._oldHeading = new cc.v2(1, 0);
+        // 正方向,heading和这个方向的夹角就是移动实体需要旋转的角度
+        self._positiveDirection = new cc.v2(1, 0);
     },
     // LIFE-CYCLE CALLBACKS:
     // onLoad () {},
@@ -107,7 +108,6 @@ cc.Class({
     setHeading(val) {
         var self = this;
 
-        // self._oldHeading.set(self.vecHeading);
         self.vecHeading.set(val);
         self.setSideFromHeading();
 
@@ -116,9 +116,8 @@ cc.Class({
     updateRotation() {
         var self = this;
 
-        var aa = -self._oldHeading.signAngle(self.vecHeading);
-        var bb = aa * 180 / EnumConst.PI;
-        cc.log(aa, bb);
+        var aa = -self._positiveDirection.signAngle(self.vecHeading);
+        var bb = aa * EnumConst.DEGREE_ONE;
         self.node.setRotation(bb);
     },
     maxTurnRate() {

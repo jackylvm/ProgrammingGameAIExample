@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 16:02:28
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-21 10:57:09
+ * Last Modified: 2018-12-28 21:03:43
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -15,15 +15,12 @@
 import CMovingEntity from "CMovingEntity";
 import CSteeringBehavior from "CSteeringBehavior";
 import SmootherVec2 from "CSmootherVec2";
-import {
-    EnumConst
-} from "CEnum";
 
 cc.Class({
     extends: CMovingEntity,
 
     properties: {
-        timeElapsed: 0.0,
+        dTimeElapsed: 0.0,
         vecSmoothedHeading: new cc.v2(0, 0),
         bSmoothingOn: false,
         vehicleVB: []
@@ -43,7 +40,10 @@ cc.Class({
 
         self._headingSmoother = new SmootherVec2();
 
-        self._steering.seekOn();
+        //TODO: 测试各种行为用的
+        // self._steering.seekOn();
+        // self._steering.fleeOn();
+        self._steering.arriveOn();
     },
     world() {
         var self = this;
@@ -59,6 +59,8 @@ cc.Class({
     // start() {},
     update(dt) {
         var self = this;
+
+        self.dTimeElapsed = dt;
 
         var _steeringForce = self._steering.calculate();
 
@@ -79,5 +81,8 @@ cc.Class({
         }
 
         self.node.setScale(self.scale().x, self.scale().y);
+    },
+    timeElapsed() {
+        return self.dTimeElapsed;
     },
 });

@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 17:17:45
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-19 19:24:46
+ * Last Modified: 2018-12-28 21:37:29
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -30,6 +30,42 @@ cc.Class({
         var self = this;
 
         self.matrix.identity();
+    },
+    _11(val) {
+        var self = this;
+        self.matrix.m11 = val;
+    },
+    _12(val) {
+        var self = this;
+        self.matrix.m12 = val;
+    },
+    _13(val) {
+        var self = this;
+        self.matrix.m13 = val;
+    },
+    _21(val) {
+        var self = this;
+        self.matrix.m21 = val;
+    },
+    _22(val) {
+        var self = this;
+        self.matrix.m22 = val;
+    },
+    _23(val) {
+        var self = this;
+        self.matrix.m23 = val;
+    },
+    _31(val) {
+        var self = this;
+        self.matrix.m31 = val;
+    },
+    _32(val) {
+        var self = this;
+        self.matrix.m32 = val;
+    },
+    _33(val) {
+        var self = this;
+        self.matrix.m33 = val;
     },
     matrixMultiply(mIn) {
         var self = this;
