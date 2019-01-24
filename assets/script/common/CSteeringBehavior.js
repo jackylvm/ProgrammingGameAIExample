@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 18:16:13
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-29 01:44:56
+ * Last Modified: 2019-01-23 12:01:49
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -67,6 +67,10 @@ cc.Class({
 
         self._targetAgent1 = null;
         self._targetAgent2 = null;
+    },
+    clearFlags() {
+        var self = this;
+        self.flags = 0;
     },
     setPath(path) {
         var self = this;

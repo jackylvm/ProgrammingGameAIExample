@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 16:02:28
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-28 21:03:43
+ * Last Modified: 2019-01-23 12:05:17
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -15,6 +15,9 @@
 import CMovingEntity from "CMovingEntity";
 import CSteeringBehavior from "CSteeringBehavior";
 import SmootherVec2 from "CSmootherVec2";
+import {
+    EnumBehaviorType
+} from "CEnum";
 
 cc.Class({
     extends: CMovingEntity,
@@ -40,10 +43,8 @@ cc.Class({
 
         self._headingSmoother = new SmootherVec2();
 
-        //TODO: 测试各种行为用的
-        // self._steering.seekOn();
-        // self._steering.fleeOn();
-        self._steering.arriveOn();
+        //默认行为
+        self._steering.seekOn();
     },
     world() {
         var self = this;
@@ -84,5 +85,34 @@ cc.Class({
     },
     timeElapsed() {
         return self.dTimeElapsed;
+    },
+    changeBehavior(behavior) {
+        var self = this;
+
+        self._steering.clearFlags();
+        switch (behavior) {
+            case EnumBehaviorType.SEEK:
+                {
+                    self._steering.seekOn();
+                }
+                break;
+            case EnumBehaviorType.FLEE:
+                {
+                    self._steering.fleeOn();
+                }
+                break;
+            case EnumBehaviorType.ARRIVE:
+                {
+                    self._steering.arriveOn();
+                }
+                break;
+            case EnumBehaviorType.PURSUIT:
+                {
+                    self._steering.pursuitOn();
+                }
+                break;
+            default:
+                break;
+        }
     },
 });

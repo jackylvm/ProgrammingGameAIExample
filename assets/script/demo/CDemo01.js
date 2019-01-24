@@ -3,7 +3,7 @@
  * File Created: 2018-12-18 20:07:08
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-29 01:10:30
+ * Last Modified: 2019-01-23 12:02:57
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -13,6 +13,9 @@
  * --------------------	---------	----------------------------------
  */
 import CMousePoint from "CMousePoint";
+import {
+    EnumBehaviorType
+} from "CEnum";
 
 cc.Class({
     extends: cc.Component,
@@ -29,6 +32,10 @@ cc.Class({
         MousePointInst: {
             default: null,
             type: CMousePoint
+        },
+        ShowDescription: {
+            default: null,
+            type: cc.Label
         }
     },
 
@@ -37,17 +44,19 @@ cc.Class({
     start() {
         var self = this;
 
+        self.ShowDescription.string = "当前行为:SEEK";
+
         // 记录CVehicle的实例
         self._vehicles = [];
 
         self.MousePointInst.init(self);
 
         self.vehicle = cc.instantiate(self.VehiclePrefab);
-        var _cVehicle = self.vehicle.getComponent("CVehicle");
-        _cVehicle.initVehicle(self);
+        self.cVehicle = self.vehicle.getComponent("CVehicle");
+        self.cVehicle.initVehicle(self);
         self.VehicleNode.addChild(self.vehicle);
 
-        self._vehicles.push(_cVehicle);
+        self._vehicles.push(self.cVehicle);
 
         var _tmp = self.MousePointInst.node.getPosition();
         _tmp = self.MousePointInst.node.parent.convertToWorldSpaceAR(_tmp);
@@ -92,5 +101,29 @@ cc.Class({
     agents() {
         var self = this;
         return self._vehicles;
+    },
+    btnSeek(evt) {
+        var self = this;
+
+        self.ShowDescription.string = "当前行为:SEEK";
+        self.cVehicle.changeBehavior(EnumBehaviorType.SEEK);
+    },
+    btnFlee(evt) {
+        var self = this;
+
+        self.ShowDescription.string = "当前行为:FLEE";
+        self.cVehicle.changeBehavior(EnumBehaviorType.FLEE);
+    },
+    btnArrive(evt) {
+        var self = this;
+
+        self.ShowDescription.string = "当前行为:ARRIVE";
+        self.cVehicle.changeBehavior(EnumBehaviorType.ARRIVE);
+    },
+    btnPursuit(evt) {
+        var self = this;
+
+        self.ShowDescription.string = "当前行为:PURSUIT";
+        self.cVehicle.changeBehavior(EnumBehaviorType.PURSUIT);
     },
 });
