@@ -3,7 +3,7 @@
  * File Created: 2018-12-18 19:52:15
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 16:48:20
+ * Last Modified: 2019-01-25 17:08:40
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -13,6 +13,7 @@
  * --------------------	---------	----------------------------------
  */
 import CVehicleEntity from "CVehicleEntity";
+import Utility from "CUtility";
 import {
     EnumConst,
     EnumBehaviorType
@@ -72,5 +73,7 @@ cc.Class({
             self.wander.circle(_tmp.x, _tmp.y, 3);
             self.wander.stroke();
         }
+
+        Utility.wrapAround(self.pos(), self.world().cxClient(), self.world().cyClient());
     },
 });

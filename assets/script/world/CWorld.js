@@ -3,7 +3,7 @@
  * File Created: 2019-01-25 10:47:54
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 16:13:54
+ * Last Modified: 2019-01-25 17:06:42
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2019 上海火刀石网络科技有限公司
@@ -67,5 +67,11 @@ cc.Class({
     },
     renderWanderCircle() {
         return true;
+    },
+    cxClient() {
+        return 960;
+    },
+    cyClient() {
+        return 640;
     },
 });
