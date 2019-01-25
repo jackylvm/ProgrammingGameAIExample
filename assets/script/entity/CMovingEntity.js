@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 14:29:07
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-21 20:54:29
+ * Last Modified: 2019-01-25 16:08:40
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -34,7 +34,7 @@ cc.Class({
         var self = this;
 
         self.initBaseGameEntity(pos, radius);
-        self.setScaleByVec2(scale)
+        self.vecScale.set(scale);
 
         self.vecVelocity.set(velocity);
         self.vecHeading.set(heading);
