@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 16:02:28
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-23 12:05:17
+ * Last Modified: 2019-01-25 16:31:58
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -46,9 +46,11 @@ cc.Class({
         //默认行为
         self._steering.seekOn();
     },
+    steering() {
+        return this._steering;
+    },
     world() {
-        var self = this;
-        return self._world;
+        return this._world;
     },
     // LIFE-CYCLE CALLBACKS:
     onLoad() {
@@ -84,6 +86,7 @@ cc.Class({
         self.node.setScale(self.scale().x, self.scale().y);
     },
     timeElapsed() {
+        var self = this;
         return self.dTimeElapsed;
     },
     changeBehavior(behavior) {
@@ -109,6 +112,11 @@ cc.Class({
             case EnumBehaviorType.PURSUIT:
                 {
                     self._steering.pursuitOn();
+                }
+                break;
+            case EnumBehaviorType.WANDER:
+                {
+                    self._steering.wanderOn();
                 }
                 break;
             default:
