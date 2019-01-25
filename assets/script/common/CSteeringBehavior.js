@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 18:16:13
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 18:47:37
+ * Last Modified: 2019-01-25 20:15:43
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -564,6 +564,19 @@ cc.Class({
         if (self.on(EnumBehaviorType.PURSUIT)) {
             if (self._targetAgent1) {
                 _force = self.pursuit(self._targetAgent1).mulSelf(self.weightPursuit);
+
+                if (!self.accumulateForce(self.steeringForce, _force)) {
+                    return self.steeringForce;
+                }
+            } else {
+                cc.log("Pursuit target not assigned!");
+            }
+        }
+
+        if (self.on(EnumBehaviorType.OFFSET_PURSUIT)) {
+            if (self._targetAgent1) {
+                _force = self.offsetPursuit(self._targetAgent1, self.offset).mulSelf(self.weightOffsetPursuit);
+
 
                 if (!self.accumulateForce(self.steeringForce, _force)) {
                     return self.steeringForce;

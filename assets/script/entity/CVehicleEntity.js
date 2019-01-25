@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 16:02:28
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 18:48:50
+ * Last Modified: 2019-01-25 20:17:53
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -86,7 +86,7 @@ cc.Class({
         var self = this;
         return self.dTimeElapsed;
     },
-    changeBehavior(behavior, target1 = null, target2 = null) {
+    changeBehavior(behavior, target1 = null, target2 = null, offset = null) {
         var self = this;
 
         self._steering.clearFlags();
@@ -119,6 +119,11 @@ cc.Class({
             case EnumBehaviorType.PURSUIT:
                 {
                     self._steering.pursuitOn(target1);
+                }
+                break;
+            case EnumBehaviorType.OFFSET_PURSUIT:
+                {
+                    self._steering.offsetPursuitOn(target1, offset);
                 }
                 break;
             default:
