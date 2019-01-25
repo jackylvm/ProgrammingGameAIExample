@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 12:26:30
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-20 19:35:30
+ * Last Modified: 2019-01-25 16:09:46
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -21,12 +21,10 @@ var CBaseGameEntity = cc.Class({
         },
     },
     properties: {
-        id: 0,
         type: -1,
         bTag: false,
-        boundingRadius: 0.0,
         vecPos: new cc.v2(0, 0),
-        vecScale: new cc.v2(0, 0)
+        vecScale: new cc.v2(1, 1)
     },
     ctor() {
         var self = this;
@@ -45,39 +43,31 @@ var CBaseGameEntity = cc.Class({
     // start() {},
     // update (dt) {},
     pos() {
-        var self = this;
-        return self.vecPos;
+        return this.vecPos;
     },
     setPos(val) {
-        self.vecPos.set(val);
+        this.vecPos.set(val);
     },
     bRadius() {
-        var self = this;
-        return self.boundingRadius;
+        return this.boundingRadius;
     },
     setBRadius(val) {
-        var self = this;
-        self.boundingRadius = val;
+        this.boundingRadius = val;
     },
     ID() {
-        var self = this;
-        return self.id;
+        return this.id;
     },
     isTagged() {
-        var self = this;
-        return self.bTag;
+        return this.bTag;
     },
     tag() {
-        var self = this;
-        self.bTag = true;
+        this.bTag = true;
     },
     untag() {
-        var self = this;
-        self.bTag = false;
+        this.bTag = false;
     },
     scale() {
-        var self = this;
-        return self.vecScale;
+        return this.vecScale;
     },
     setScaleByVec2(val) {
         var self = this;
@@ -90,11 +80,9 @@ var CBaseGameEntity = cc.Class({
         self.vecScale.y = val;
     },
     entityType() {
-        var self = this;
-        return self.type;
+        return this.type;
     },
     setEntityType(val) {
-        var self = this;
-        self.type = val;
+        this.type = val;
     },
 });
