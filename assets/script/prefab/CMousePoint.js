@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 09:49:37
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-19 16:52:12
+ * Last Modified: 2019-01-25 17:24:48
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -32,12 +32,12 @@ cc.Class({
 
         _graphics.clear();
 
-        var radius = 5;
+        var radius = 4;
         _graphics.circle(0, 0, radius);
-        _graphics.moveTo(-(radius + 4), 0);
-        _graphics.lineTo(radius + 4, 0);
-        _graphics.moveTo(0, radius + 4);
-        _graphics.lineTo(0, -(radius + 4));
+        _graphics.moveTo(-(radius + 2), 0);
+        _graphics.lineTo(radius + 2, 0);
+        _graphics.moveTo(0, radius + 2);
+        _graphics.lineTo(0, -(radius + 2));
         _graphics.stroke();
     },
     // update (dt) {},
