@@ -3,7 +3,7 @@
  * File Created: 2018-12-18 19:52:15
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 18:36:17
+ * Last Modified: 2019-01-25 18:38:41
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -34,8 +34,10 @@ cc.Class({
         vehicleSize: 12
     },
 
-    initVehicle(world) {
+    initVehicle(world, size = 12) {
         var self = this;
+
+        self.vehicleSize = size;
 
         self.initVehicleEntity(world, new cc.v2(0, 0), EnumConst.HALF_PI, new cc.v2(0, 0), 1, 100, 120, 60, 1);
     },
@@ -51,7 +53,7 @@ cc.Class({
         self.body.lineTo(self.vehicleSize, 0);
         self.body.lineTo(-self.vehicleSize, -_half);
         self.body.lineTo(-self.vehicleSize, _half);
-        self.body.circle(0, 0, 3);
+        self.body.circle(0, 0, _half / 2);
         self.body.stroke();
     },
     update(dt) {

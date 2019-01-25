@@ -3,7 +3,7 @@
  * File Created: 2018-12-18 20:07:08
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 18:17:33
+ * Last Modified: 2019-01-25 18:37:54
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -39,7 +39,7 @@ cc.Class({
 
         self.target = cc.instantiate(self.VehiclePrefab);
         self.cTarget = self.target.getComponent("CVehicle");
-        self.cTarget.initVehicle(self);
+        self.cTarget.initVehicle(self, 6);
         self.VehicleNode.addChild(self.target);
 
         self.cTarget.changeBehavior(EnumBehaviorType.SEEK);
