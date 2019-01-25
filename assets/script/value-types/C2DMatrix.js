@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 17:17:45
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-28 21:37:29
+ * Last Modified: 2019-01-25 15:44:00
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -24,54 +24,43 @@ cc.Class({
     ctor() {
         var self = this;
 
-        self.matrix = new Matrix();
+        self.matrix = new CMatrix();
     },
     identity() {
-        var self = this;
-
-        self.matrix.identity();
+        this.matrix.identity();
     },
     _11(val) {
-        var self = this;
-        self.matrix.m11 = val;
+        this.matrix.m11 = val;
     },
     _12(val) {
-        var self = this;
-        self.matrix.m12 = val;
+        this.matrix.m12 = val;
     },
     _13(val) {
-        var self = this;
-        self.matrix.m13 = val;
+        this.matrix.m13 = val;
     },
     _21(val) {
-        var self = this;
-        self.matrix.m21 = val;
+        this.matrix.m21 = val;
     },
     _22(val) {
-        var self = this;
-        self.matrix.m22 = val;
+        this.matrix.m22 = val;
     },
     _23(val) {
-        var self = this;
-        self.matrix.m23 = val;
+        this.matrix.m23 = val;
     },
     _31(val) {
-        var self = this;
-        self.matrix.m31 = val;
+        this.matrix.m31 = val;
     },
     _32(val) {
-        var self = this;
-        self.matrix.m32 = val;
+        this.matrix.m32 = val;
     },
     _33(val) {
-        var self = this;
-        self.matrix.m33 = val;
+        this.matrix.m33 = val;
     },
     matrixMultiply(mIn) {
         var self = this;
 
         var _matrix = self.matrix;
-        var _mat = new Matrix();
+        var _mat = new CMatrix();
         _mat.m11 = (_matrix.m11 * mIn.m11) + (_matrix.m12 * mIn.m21) + (_matrix.m13 * mIn.m31);
         _mat.m12 = (_matrix.m11 * mIn.m12) + (_matrix.m12 * mIn.m22) + (_matrix.m13 * mIn.m32);
         _mat.m13 = (_matrix.m11 * mIn.m13) + (_matrix.m12 * mIn.m23) + (_matrix.m13 * mIn.m33);
@@ -89,7 +78,7 @@ cc.Class({
     translate(x, y) {
         var self = this;
 
-        var _mat = new Matrix();
+        var _mat = new CMatrix();
         _mat.m11 = 1;
         _mat.m12 = 0;
         _mat.m13 = 0;
@@ -181,8 +170,8 @@ cc.Class({
 
         var _matrix = self.matrix;
 
-        var tx = (_matrix.m11 * pt.x) + (_matrix.m21 * pt.y) + (_matrix.m31);
-        var ty = (_matrix.m12 * pt.x) + (_matrix.m22 * pt.y) + (_matrix.m32);
+        var tx = (_matrix.m11 * point.x) + (_matrix.m21 * point.y) + (_matrix.m31);
+        var ty = (_matrix.m12 * point.x) + (_matrix.m22 * point.y) + (_matrix.m32);
 
         point.x = tx;
         point.y = ty;
