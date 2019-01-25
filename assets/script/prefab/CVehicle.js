@@ -3,7 +3,7 @@
  * File Created: 2018-12-18 19:52:15
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 17:08:40
+ * Last Modified: 2019-01-25 18:36:17
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -30,7 +30,8 @@ cc.Class({
         wander: {
             default: null,
             type: cc.Graphics
-        }
+        },
+        vehicleSize: 12
     },
 
     initVehicle(world) {
@@ -45,10 +46,11 @@ cc.Class({
 
         self.body.clear();
 
-        self.body.moveTo(-12, 6);
-        self.body.lineTo(12, 0);
-        self.body.lineTo(-12, -6);
-        self.body.lineTo(-12, 6);
+        var _half = self.vehicleSize / 2;
+        self.body.moveTo(-self.vehicleSize, _half);
+        self.body.lineTo(self.vehicleSize, 0);
+        self.body.lineTo(-self.vehicleSize, -_half);
+        self.body.lineTo(-self.vehicleSize, _half);
         self.body.circle(0, 0, 3);
         self.body.stroke();
     },
