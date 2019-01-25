@@ -3,7 +3,7 @@
  * File Created: 2019-01-25 10:47:54
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 17:06:42
+ * Last Modified: 2019-01-25 18:14:33
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2019 上海火刀石网络科技有限公司
@@ -29,6 +29,8 @@ cc.Class({
     // onLoad () {},
     start() {
         var self = this;
+
+        self._crosshair = cc.v2(0, 0);
 
         self.vehicle = cc.instantiate(self.VehiclePrefab);
         self.cVehicle = self.vehicle.getComponent("CVehicle");

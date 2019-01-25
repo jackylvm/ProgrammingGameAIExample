@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 16:02:28
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 16:31:58
+ * Last Modified: 2019-01-25 17:51:13
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -42,9 +42,6 @@ cc.Class({
         self._steering.init(self);
 
         self._headingSmoother = new SmootherVec2();
-
-        //默认行为
-        self._steering.seekOn();
     },
     steering() {
         return this._steering;
@@ -89,7 +86,7 @@ cc.Class({
         var self = this;
         return self.dTimeElapsed;
     },
-    changeBehavior(behavior) {
+    changeBehavior(behavior, target1 = null, target2 = null) {
         var self = this;
 
         self._steering.clearFlags();
@@ -117,6 +114,11 @@ cc.Class({
             case EnumBehaviorType.WANDER:
                 {
                     self._steering.wanderOn();
+                }
+                break;
+            case EnumBehaviorType.EVADE:
+                {
+                    self._steering.evadeOn(target1);
                 }
                 break;
             default:

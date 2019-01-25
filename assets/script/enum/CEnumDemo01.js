@@ -3,7 +3,7 @@
  * File Created: 2018-12-28 20:43:31
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-29 01:25:46
+ * Last Modified: 2019-01-25 18:27:37
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -44,7 +44,7 @@ _enum.PursuitWeight = 1.0;
 _enum.OffsetPursuitWeight = 1.0;
 _enum.InterposeWeight = 1.0;
 _enum.HideWeight = 1.0;
-_enum.EvadeWeight = 0.01;
+_enum.EvadeWeight = 2.0;
 _enum.FollowPathWeight = 0.05;
 
 _enum.ViewDistance = 50.0;

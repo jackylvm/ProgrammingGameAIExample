@@ -3,7 +3,7 @@
  * File Created: 2018-12-18 20:07:08
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 12:13:11
+ * Last Modified: 2019-01-25 18:17:50
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -45,7 +45,6 @@ cc.Class({
     },
     // update (dt) {},
     onMousePointMove(worldPt) {
-        var self = this;
-        self._crosshair = self.vehicle.parent.convertToNodeSpaceAR(worldPt);
+        this._crosshair = this.vehicle.parent.convertToNodeSpaceAR(worldPt);
     },
 });

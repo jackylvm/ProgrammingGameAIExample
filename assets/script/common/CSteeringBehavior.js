@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 18:16:13
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 16:47:28
+ * Last Modified: 2019-01-25 18:28:51
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -463,8 +463,8 @@ cc.Class({
         }
 
         if (self.on(EnumBehaviorType.EVADE)) {
-            if (self.targetAgent1) {
-                _force = self.evade(self.targetAgent1).mulSelf(self.weightEvade);
+            if (self._targetAgent1) {
+                _force = self.evade(self._targetAgent1).mulSelf(self.weightEvade);
 
                 if (!self.accumulateForce(self.steeringForce, _force)) {
                     return self.steeringForce;
@@ -637,6 +637,7 @@ cc.Class({
 
         var _lookAheadTime = _toPursuer.mag() / (self._vehicle.maxSpeed() + pursuer.maxSpeed());
         var _tmp = pursuer.velocity().mul(_lookAheadTime);
+        cc.log("evade", _tmp);
         return self.flee(pursuer.pos().add(_tmp));
     },
     arrive(target, deceleration) {
@@ -826,7 +827,7 @@ cc.Class({
         for (let i = 0; i < neighbors.length; i++) {
             const _neighbor = neighbors[i];
 
-            if ((_neighbor != self._vehicle) && _neighbor.isTagged() && (_neighbor != self.targetAgent1)) {
+            if ((_neighbor != self._vehicle) && _neighbor.isTagged() && (_neighbor != self._targetAgent1)) {
                 var _toAgent = self._vehicle.sub(_neighbor.pos());
 
                 var _length = _toAgent.mag();
@@ -853,7 +854,7 @@ cc.Class({
         for (let i = 0; i < neighbors.length; i++) {
             const _neighbor = neighbors[i];
 
-            if ((_neighbor != self._vehicle) && _neighbor.isTagged() && (_neighbor != self.targetAgent1)) {
+            if ((_neighbor != self._vehicle) && _neighbor.isTagged() && (_neighbor != self._targetAgent1)) {
                 _averageHeading.addSelf(_neighbor.heading());
                 ++_neighborCount;
             }
@@ -884,7 +885,7 @@ cc.Class({
         for (let i = 0; i < neighbors.length; i++) {
             const _neighbor = neighbors[i];
 
-            if ((_neighbor != self._vehicle) && _neighbor.isTagged() && (_neighbor != self.targetAgent1)) {
+            if ((_neighbor != self._vehicle) && _neighbor.isTagged() && (_neighbor != self._targetAgent1)) {
                 _centerOfMass.addSelf(_neighbor.pos());
                 ++_neighborCount;
             }

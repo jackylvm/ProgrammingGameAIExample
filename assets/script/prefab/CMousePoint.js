@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 09:49:37
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 17:24:48
+ * Last Modified: 2019-01-25 18:13:22
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -19,9 +19,7 @@ cc.Class({
     properties: {},
 
     init(follower) {
-        var self = this;
-
-        self._follower = follower;
+        this._follower = follower;
     },
     // LIFE-CYCLE CALLBACKS:
     // onLoad () {},

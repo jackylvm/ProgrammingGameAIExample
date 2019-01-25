@@ -3,7 +3,7 @@
  * File Created: 2018-12-18 20:07:08
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 18:17:46
+ * Last Modified: 2019-01-25 18:17:33
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -37,11 +37,13 @@ cc.Class({
 
         self.MousePointInst.init(self);
 
-        var _tmp = self.MousePointInst.node.getPosition();
-        _tmp = self.MousePointInst.node.parent.convertToWorldSpaceAR(_tmp);
-        self._crosshair = self.vehicle.parent.convertToNodeSpaceAR(_tmp);
+        self.target = cc.instantiate(self.VehiclePrefab);
+        self.cTarget = self.target.getComponent("CVehicle");
+        self.cTarget.initVehicle(self);
+        self.VehicleNode.addChild(self.target);
 
-        self.cVehicle.changeBehavior(EnumBehaviorType.FLEE);
+        self.cTarget.changeBehavior(EnumBehaviorType.SEEK);
+        self.cVehicle.changeBehavior(EnumBehaviorType.EVADE, self.cTarget);
     },
     // update (dt) {},
     onMousePointMove(worldPt) {
