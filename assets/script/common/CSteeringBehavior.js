@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 18:16:13
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-23 12:01:49
+ * Last Modified: 2019-01-25 16:47:28
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -21,6 +21,11 @@ import {
     EnumDeceleration,
     EnumConst
 } from "CEnum";
+
+var WANDER_RADIUS = 8;
+var WANDER_DISTANCE = 20.0;
+var WANDER_JITTER_PER_SEC = 80.0;
+var WAY_POINT_SEEK_DIST = 20;
 
 cc.Class({
     extends: cc.Object,
@@ -57,6 +62,36 @@ cc.Class({
         deceleration: 2,
         cellSpaceOn: false,
         summingMethod: 0
+    },
+    ctor() {
+        var self = this;
+
+        self.dboxLength = EnumDemo.MinDetectionBoxLength;
+        self.weightCohesion = EnumDemo.CohesionWeight;
+        self.weightAlignment = EnumDemo.AlignmentWeight;
+        self.weightSeparation = EnumDemo.SeparationWeight;
+        self.weightObstacleAvoidance = EnumDemo.ObstacleAvoidanceWeight;
+        self.weightWander = EnumDemo.WanderWeight;
+        self.weightWallAvoidance = EnumDemo.WallAvoidanceWeight;
+        self.viewDistance = EnumDemo.ViewDistance;
+        self.wallDetectionFeelerLength = EnumDemo.WallDetectionFeelerLength;
+        self.deceleration = EnumDeceleration.NORMAL;
+        self.wanderDistance = WANDER_DISTANCE;
+        self.wanderJitter = WANDER_JITTER_PER_SEC;
+        self.wanderRadius = WANDER_RADIUS;
+        self.waypointSeekDistSq = WAY_POINT_SEEK_DIST * WAY_POINT_SEEK_DIST;
+        self.weightSeek = EnumDemo.SeekWeight;
+        self.weightFlee = EnumDemo.FleeWeight;
+        self.weightArrive = EnumDemo.ArriveWeight;
+        self.weightPursuit = EnumDemo.PursuitWeight;
+        self.weightOffsetPursuit = EnumDemo.OffsetPursuitWeight;
+        self.weightInterpose = EnumDemo.InterposeWeight;
+        self.weightHide = EnumDemo.HideWeight;
+        self.weightEvade = EnumDemo.EvadeWeight;
+        self.weightFollowPath = EnumDemo.FollowPathWeight;
+
+        var _theta = Utility.randFloat() * EnumConst.TWO_PI;
+        self.wanderTarget = cc.v2(self.wanderRadius * Math.cos(_theta), self.wanderRadius * Math.sin(_theta));
     },
     init(agent) {
         var self = this;
@@ -518,6 +553,13 @@ cc.Class({
             }
         }
 
+        if (self.on(EnumBehaviorType.WANDER)) {
+            _force = self.wander().mulSelf(self.weightWander);
+
+            if (!self.accumulateForce(self.steeringForce, _force)) {
+                return self.steeringForce;
+            }
+        }
         return self.steeringForce;
     },
     calculateDithered() {},
