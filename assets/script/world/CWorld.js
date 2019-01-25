@@ -3,7 +3,7 @@
  * File Created: 2019-01-25 10:47:54
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 12:12:54
+ * Last Modified: 2019-01-25 16:13:54
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2019 上海火刀石网络科技有限公司
@@ -43,17 +43,12 @@ cc.Class({
         return [];
     },
     crosshair() {
-        var self = this;
-        return self._crosshair;
+        return this._crosshair;
     },
     tagObstacleWithinViewRange(vehicle, range) {
-        var self = this;
-
-        self.tagNeighbors(vehicle, self._vehicles, range);
+        this.tagNeighbors(vehicle, self._vehicles, range);
     },
     tagNeighbors(vehicle, neighbors, radius) {
-        var self = this;
-
         for (let i = 0; i < neighbors.length; i++) {
             const _cVehicle = neighbors[i];
             _cVehicle.untag();
@@ -68,7 +63,9 @@ cc.Class({
         }
     },
     agents() {
-        var self = this;
-        return self._vehicles;
+        return this._vehicles;
+    },
+    renderWanderCircle() {
+        return true;
     },
 });
