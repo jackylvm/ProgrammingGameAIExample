@@ -258,10 +258,10 @@
     "_lineWidth": 1,
     "_strokeColor": {
       "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
-      "a": 255
+      "r": 222,
+      "g": 222,
+      "b": 222,
+      "a": 196
     },
     "_lineJoin": 2,
     "_lineCap": 0,
@@ -294,10 +294,8 @@
       "__id__": 1
     },
     "_enabled": true,
-    "id": 0,
     "type": -1,
     "bTag": false,
-    "boundingRadius": 0,
     "vecPos": {
       "__type__": "cc.Vec2",
       "x": 0,
