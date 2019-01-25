@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 18:16:13
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 18:28:51
+ * Last Modified: 2019-01-25 18:47:37
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -560,6 +560,18 @@ cc.Class({
                 return self.steeringForce;
             }
         }
+
+        if (self.on(EnumBehaviorType.PURSUIT)) {
+            if (self._targetAgent1) {
+                _force = self.pursuit(self._targetAgent1).mulSelf(self.weightPursuit);
+
+                if (!self.accumulateForce(self.steeringForce, _force)) {
+                    return self.steeringForce;
+                }
+            } else {
+                cc.log("Pursuit target not assigned!");
+            }
+        }
         return self.steeringForce;
     },
     calculateDithered() {},
@@ -661,6 +673,7 @@ cc.Class({
         var self = this;
 
         var _pos = self._vehicle.pos();
+        cc.log(evader);
         var _toEvader = evader.pos().sub(_pos);
 
         var _relativeHeading = self._vehicle.heading().dot(evader.heading());

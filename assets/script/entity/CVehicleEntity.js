@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 16:02:28
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 17:51:13
+ * Last Modified: 2019-01-25 18:48:50
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -106,11 +106,6 @@ cc.Class({
                     self._steering.arriveOn();
                 }
                 break;
-            case EnumBehaviorType.PURSUIT:
-                {
-                    self._steering.pursuitOn();
-                }
-                break;
             case EnumBehaviorType.WANDER:
                 {
                     self._steering.wanderOn();
@@ -119,6 +114,11 @@ cc.Class({
             case EnumBehaviorType.EVADE:
                 {
                     self._steering.evadeOn(target1);
+                }
+                break;
+            case EnumBehaviorType.PURSUIT:
+                {
+                    self._steering.pursuitOn(target1);
                 }
                 break;
             default:

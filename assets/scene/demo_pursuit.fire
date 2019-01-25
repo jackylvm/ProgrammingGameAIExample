@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.3073850289240907,
-      "y": 1.3073850289240907,
+      "x": 1.3073850289240891,
+      "y": 1.3073850289240891,
       "z": 1
     },
     "_quat": {
@@ -58,7 +58,7 @@
     "_zIndex": 0,
     "groupIndex": 0,
     "autoReleaseAssets": false,
-    "_id": "cb9e98ae-258e-4712-84b2-699d7d203991"
+    "_id": "274c1c62-058a-4c9e-93f2-48d182c16aee"
   },
   {
     "__type__": "cc.Node",
@@ -431,7 +431,7 @@
     "_position": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 275.2,
+      "y": 274.4,
       "z": 0
     },
     "_scale": {
@@ -466,8 +466,8 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "行为:Evade\n鼠标点击开始",
-    "_N$string": "行为:Evade\n鼠标点击开始",
+    "_string": "行为:Pursuit\n鼠标点击开始",
+    "_N$string": "行为:Pursuit\n鼠标点击开始",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
@@ -573,7 +573,7 @@
     "_id": "86oUlycfVE9a1egFY10D8j"
   },
   {
-    "__type__": "4ed32dEQj5N4Y3pM4Aua8mc",
+    "__type__": "0e0bfNkfNtOgp+E6hyDjg4b",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -589,6 +589,6 @@
     "MousePointInst": {
       "__id__": 7
     },
-    "_id": "d6W1RdOqJK5YFjkVkVGgmB"
+    "_id": "a5LgXlE8hK7IB2HDyRG0/s"
   }
 ]
