@@ -3,7 +3,7 @@
  * File Created: 2018-12-28 23:50:58
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-29 00:33:32
+ * Last Modified: 2019-01-26 12:11:06
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -32,21 +32,17 @@ cc.Class({
         self.looped = looped;
     },
     loopOn() {
-        var self = this;
-        self.looped = true;
+        this.looped = true;
     },
     loopOff() {
-        var self = this;
-        self.looped = false;
+        this.looped = false;
     },
     finished() {
-        var self = this;
-        return self.wayPoints.length <= self.curWayPoint;
+        return this.wayPoints.length <= this.curWayPoint;
     },
     clear() {
-        var self = this;
-        self.wayPoints = [];
-        self.curWayPoint = 0;
+        this.wayPoints = [];
+        this.curWayPoint = 0;
     },
     currentWayPoint() {
         var self = this;
@@ -57,19 +53,16 @@ cc.Class({
         return self.wayPoints[self.curWayPoint];
     },
     getPath() {
-        var self = this;
-        return self.wayPoints;
+        return this.wayPoints;
     },
     setByArray(wayPoints) {
-        var self = this;
-        self.wayPoints = wayPoints;
-        self.curWayPoint = 0;
+        this.wayPoints = wayPoints;
+        this.curWayPoint = 0;
     },
     setByPath(path) {
-        var self = this;
         if (path) {
-            self.wayPoints = path.getPath();
-            self.curWayPoint = 0;
+            this.wayPoints = path.getPath();
+            this.curWayPoint = 0;
         }
     },
     createRandomPath(numWayPoints, minX, minY, maxX, maxY) {

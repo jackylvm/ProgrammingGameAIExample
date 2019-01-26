@@ -3,7 +3,7 @@
  * File Created: 2018-12-29 14:48:09
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-29 15:05:19
+ * Last Modified: 2019-01-26 12:11:25
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -40,20 +40,16 @@ cc.Class({
         );
     },
     top() {
-        var self = this;
-        return self.topLeft.y;
+        return this.topLeft.y;
     },
     left() {
-        var self = this;
-        return self.topLeft.x;
+        return this.topLeft.x;
     },
     bottom() {
-        var self = this;
-        return self.bottomRight.y;
+        return this.bottomRight.y;
     },
     right() {
-        var self = this;
-        return self.bottomRight.x;
+        return this.bottomRight.x;
     },
     // LIFE-CYCLE CALLBACKS:
     // onLoad () {},

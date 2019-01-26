@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 18:16:13
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-26 10:45:03
+ * Last Modified: 2019-01-26 12:09:46
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -104,251 +104,200 @@ cc.Class({
         self._targetAgent2 = null;
     },
     clearFlags() {
-        var self = this;
-        self.flags = 0;
+        this.flags = 0;
     },
     setPath(path) {
-        var self = this;
-        self._path = path;
+        this._path = path;
     },
     fleeOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.FLEE
+        this.flags |= EnumBehaviorType.FLEE
     },
     fleeOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.FLEE)) {
-            self.flags ^= EnumBehaviorType.FLEE
+        if (this.on(EnumBehaviorType.FLEE)) {
+            this.flags ^= EnumBehaviorType.FLEE
         }
     },
     isFleeOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.FLEE);
+        return this.on(EnumBehaviorType.FLEE);
     },
     seekOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.SEEK
+        this.flags |= EnumBehaviorType.SEEK
     },
     seekOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.SEEK)) {
-            self.flags ^= EnumBehaviorType.SEEK
+        if (this.on(EnumBehaviorType.SEEK)) {
+            this.flags ^= EnumBehaviorType.SEEK
         }
     },
     isSeekOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.SEEK);
+        return this.on(EnumBehaviorType.SEEK);
     },
     arriveOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.ARRIVE
+        this.flags |= EnumBehaviorType.ARRIVE
     },
     arriveOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.ARRIVE)) {
-            self.flags ^= EnumBehaviorType.ARRIVE
+        if (this.on(EnumBehaviorType.ARRIVE)) {
+            this.flags ^= EnumBehaviorType.ARRIVE
         }
     },
     isArriveOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.ARRIVE);
+        return this.on(EnumBehaviorType.ARRIVE);
     },
     wanderOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.WANDER
+        this.flags |= EnumBehaviorType.WANDER
     },
     wanderOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.WANDER)) {
-            self.flags ^= EnumBehaviorType.WANDER
+        if (this.on(EnumBehaviorType.WANDER)) {
+            this.flags ^= EnumBehaviorType.WANDER
         }
     },
     isWanderOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.WANDER);
+        return this.on(EnumBehaviorType.WANDER);
     },
     pursuitOn(target) {
-        var self = this;
-        self.flags |= EnumBehaviorType.PURSUIT
-        self._targetAgent1 = target;
+        this.flags |= EnumBehaviorType.PURSUIT
+        this._targetAgent1 = target;
     },
     pursuitOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.PURSUIT)) {
-            self.flags ^= EnumBehaviorType.PURSUIT
+        if (this.on(EnumBehaviorType.PURSUIT)) {
+            this.flags ^= EnumBehaviorType.PURSUIT
         }
     },
     isPursuitOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.PURSUIT);
+        return this.on(EnumBehaviorType.PURSUIT);
     },
     evadeOn(target) {
-        var self = this;
-        self.flags |= EnumBehaviorType.EVADE
-        self._targetAgent1 = target;
+        this.flags |= EnumBehaviorType.EVADE
+        this._targetAgent1 = target;
     },
     evadeOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.EVADE)) {
-            self.flags ^= EnumBehaviorType.EVADE
+        if (this.on(EnumBehaviorType.EVADE)) {
+            this.flags ^= EnumBehaviorType.EVADE
         }
     },
     isEvadeOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.EVADE);
+        return this.on(EnumBehaviorType.EVADE);
     },
     cohesionOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.COHESION
+        this.flags |= EnumBehaviorType.COHESION
     },
     cohesionOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.COHESION)) {
-            self.flags ^= EnumBehaviorType.COHESION
+        if (this.on(EnumBehaviorType.COHESION)) {
+            this.flags ^= EnumBehaviorType.COHESION
         }
     },
     isCohesionOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.COHESION);
+        return this.on(EnumBehaviorType.COHESION);
     },
     separationOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.SEPARATION
+        this.flags |= EnumBehaviorType.SEPARATION
     },
     separationOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.SEPARATION)) {
-            self.flags ^= EnumBehaviorType.SEPARATION
+        if (this.on(EnumBehaviorType.SEPARATION)) {
+            this.flags ^= EnumBehaviorType.SEPARATION
         }
     },
     isSeparationOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.SEPARATION);
+        return this.on(EnumBehaviorType.SEPARATION);
     },
     alignmentOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.ALIGNMENT
+        this.flags |= EnumBehaviorType.ALIGNMENT
     },
     alignmentOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.ALIGNMENT)) {
-            self.flags ^= EnumBehaviorType.ALIGNMENT
+        if (this.on(EnumBehaviorType.ALIGNMENT)) {
+            this.flags ^= EnumBehaviorType.ALIGNMENT
         }
     },
     isAlignmentOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.ALIGNMENT);
+        return this.on(EnumBehaviorType.ALIGNMENT);
     },
     obstacleAvoidanceOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.OBSTACLE_AVOIDANCE
+        this.flags |= EnumBehaviorType.OBSTACLE_AVOIDANCE
     },
     obstacleAvoidanceOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.OBSTACLE_AVOIDANCE)) {
-            self.flags ^= EnumBehaviorType.OBSTACLE_AVOIDANCE
+        if (this.on(EnumBehaviorType.OBSTACLE_AVOIDANCE)) {
+            this.flags ^= EnumBehaviorType.OBSTACLE_AVOIDANCE
         }
     },
     isObstacleAvoidanceOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.OBSTACLE_AVOIDANCE);
+        return this.on(EnumBehaviorType.OBSTACLE_AVOIDANCE);
     },
     wallAvoidanceOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.WALL_AVOIDANCE
+        this.flags |= EnumBehaviorType.WALL_AVOIDANCE
     },
     wallAvoidanceOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.WALL_AVOIDANCE)) {
-            self.flags ^= EnumBehaviorType.WALL_AVOIDANCE
+        if (this.on(EnumBehaviorType.WALL_AVOIDANCE)) {
+            this.flags ^= EnumBehaviorType.WALL_AVOIDANCE
         }
     },
     isWallAvoidanceOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.WALL_AVOIDANCE);
+        return this.on(EnumBehaviorType.WALL_AVOIDANCE);
     },
     followPathOn() {
-        var self = this;
-        self.flags |= EnumBehaviorType.FOLLOW_PATH
+        this.flags |= EnumBehaviorType.FOLLOW_PATH
     },
     followPathOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.FOLLOW_PATH)) {
-            self.flags ^= EnumBehaviorType.FOLLOW_PATH
+        if (this.on(EnumBehaviorType.FOLLOW_PATH)) {
+            this.flags ^= EnumBehaviorType.FOLLOW_PATH
         }
     },
     isFollowPathOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.FOLLOW_PATH);
+        return this.on(EnumBehaviorType.FOLLOW_PATH);
     },
     interposeOn(t1, t2) {
-        var self = this;
-        self.flags |= EnumBehaviorType.INTERPOSE
-        self._targetAgent1 = t1;
-        self._targetAgent2 = t2;
+        this.flags |= EnumBehaviorType.INTERPOSE
+        this._targetAgent1 = t1;
+        this._targetAgent2 = t2;
     },
     interposeOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.INTERPOSE)) {
-            self.flags ^= EnumBehaviorType.INTERPOSE
+        if (this.on(EnumBehaviorType.INTERPOSE)) {
+            this.flags ^= EnumBehaviorType.INTERPOSE
         }
     },
     isInterposeOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.INTERPOSE);
+        return this.on(EnumBehaviorType.INTERPOSE);
     },
     hideOn(target) {
-        var self = this;
-        self.flags |= EnumBehaviorType.HIDE
-        self._targetAgent1 = target;
+        this.flags |= EnumBehaviorType.HIDE
+        this._targetAgent1 = target;
     },
     hideOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.HIDE)) {
-            self.flags ^= EnumBehaviorType.HIDE
+        if (this.on(EnumBehaviorType.HIDE)) {
+            this.flags ^= EnumBehaviorType.HIDE
         }
     },
     isHideOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.HIDE);
+        return this.on(EnumBehaviorType.HIDE);
     },
     offsetPursuitOn(target, offset) {
-        var self = this;
-        self.flags |= EnumBehaviorType.OFFSET_PURSUIT
-        self._targetAgent1 = target;
-        self.offset.set(offset);
+        this.flags |= EnumBehaviorType.OFFSET_PURSUIT
+        this._targetAgent1 = target;
+        this.offset.set(offset);
     },
     offsetPursuitOff() {
-        var self = this;
-        if (self.on(EnumBehaviorType.OFFSET_PURSUIT)) {
-            self.flags ^= EnumBehaviorType.OFFSET_PURSUIT
+        if (this.on(EnumBehaviorType.OFFSET_PURSUIT)) {
+            this.flags ^= EnumBehaviorType.OFFSET_PURSUIT
         }
     },
     isOffsetPursuitOn() {
-        var self = this;
-        return self.on(EnumBehaviorType.OFFSET_PURSUIT);
+        return this.on(EnumBehaviorType.OFFSET_PURSUIT);
     },
     flockingOn() {
-        var self = this;
-        self.cohesionOn();
-        self.alignmentOn();
-        self.separationOn();
-        self.wanderOn();
+        this.cohesionOn();
+        this.alignmentOn();
+        this.separationOn();
+        this.wanderOn();
     },
     flockingOff() {
-        var self = this;
-        self.cohesionOff();
-        self.alignmentOff();
-        self.separationOff();
-        self.wanderOff();
+        this.cohesionOff();
+        this.alignmentOff();
+        this.separationOff();
+        this.wanderOff();
     },
     toggleSpacePartitioningOnOff() {
-        var self = this;
-        self.cellSpaceOn = !self.cellSpaceOn;
+        this.cellSpaceOn = !this.cellSpaceOn;
     },
     isSpacePartitioningOn() {
-        var self = this;
-        return self.cellSpaceOn;
+        return this.cellSpaceOn;
     },
     pointToWorldSpace(pt, agentHeading, agentSide, agentPosition) {
         var _transPoint = pt.clone();
@@ -589,9 +538,7 @@ cc.Class({
     },
     calculateDithered() {},
     on(bt) {
-        var self = this;
-
-        return (self.flags & bt) == bt;
+        return (this.flags & bt) == bt;
     },
     accumulateForce(sf, forceToAdd) {
         var self = this;
