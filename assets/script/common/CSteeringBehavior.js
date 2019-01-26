@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 18:16:13
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-26 12:09:46
+ * Last Modified: 2019-01-26 14:17:07
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -618,7 +618,7 @@ cc.Class({
 
         var _dist = _toTarget.mag();
         if (0.01 < _dist) {
-            var _decelerationTweaker = 0.3;
+            var _decelerationTweaker = 1.6;
             var _speed = _dist / (deceleration * _decelerationTweaker);
             _speed = Math.min(_speed, self._vehicle.maxSpeed());
 

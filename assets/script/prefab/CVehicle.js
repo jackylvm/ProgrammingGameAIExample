@@ -3,7 +3,7 @@
  * File Created: 2018-12-18 19:52:15
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-26 12:01:09
+ * Last Modified: 2019-01-26 14:15:01
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -53,7 +53,7 @@ cc.Class({
         rotation = 0,
         velocity = cc.v2(0, 0),
         mass = 1,
-        maxForce = 100,
+        maxForce = 96.0,
         maxSpeed = 150,
         maxTurnRate = 60
     ) {
