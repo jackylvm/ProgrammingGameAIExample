@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 14:29:07
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 18:00:23
+ * Last Modified: 2019-01-26 11:01:53
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -53,80 +53,61 @@ cc.Class({
     // start() {},
     // update (dt) {},
     velocity() {
-        var self = this;
-        return self.vecVelocity;
+        return this.vecVelocity;
     },
     setVelocity(val) {
-        var self = this;
-        self.vecVelocity.set(val);
+        this.vecVelocity.set(val);
     },
     mass() {
-        var self = this;
-        return self.dMass;
+        return this.dMass;
     },
     side() {
-        var self = this;
-        return self.vecSide;
+        return this.vecSide;
     },
     setSideFromHeading() {
-        var self = this;
-        self.vecSide.x = -self.vecHeading.y;
-        self.vecSide.y = self.vecHeading.x;
+        this.vecSide.x = -this.vecHeading.y;
+        this.vecSide.y = this.vecHeading.x;
     },
     maxSpeed() {
-        var self = this;
-        return self.dMaxSpeed;
+        return this.dMaxSpeed;
     },
     setMaxSpeed(val) {
-        var self = this;
-        self.dMaxSpeed = val;
+        this.dMaxSpeed = val;
     },
     maxForce() {
-        var self = this;
-        return self.dMaxForce;
+        return this.dMaxForce;
     },
     setMaxForce(val) {
-        var self = this;
-        self.dMaxForce = val;
+        this.dMaxForce = val;
     },
     isSpeedMaxedOut() {
-        var self = this;
-        return self.dMaxSpeed * self.dMaxSpeed >= self.vecVelocity.magSqr();
+        return this.dMaxSpeed * this.dMaxSpeed >= this.vecVelocity.magSqr();
     },
     speed() {
-        var self = this;
-        return self.vecVelocity.mag();
+        return this.vecVelocity.mag();
     },
     speedSQ() {
-        var self = this;
-        return self.vecVelocity.magSqr();
+        return this.vecVelocity.magSqr();
     },
     heading() {
-        var self = this;
-        return self.vecHeading;
+        return this.vecHeading;
     },
     setHeading(val) {
-        var self = this;
+        this.vecHeading.set(val);
+        this.setSideFromHeading();
 
-        self.vecHeading.set(val);
-        self.setSideFromHeading();
-
-        self.updateRotation();
+        this.updateRotation();
     },
     updateRotation() {
-        var self = this;
-
-        var aa = -self._positiveDirection.signAngle(self.vecHeading);
+        var aa = -this._positiveDirection.signAngle(this.vecHeading);
         var bb = aa * EnumConst.DEGREE_ONE;
-        self.node.setRotation(bb);
+        this.node.setRotation(bb);
     },
     maxTurnRate() {
-        var self = this;
-        return self.dMaxTurnRate;
+        return this.dMaxTurnRate;
     },
     setMaxTurnRate(val) {
-        var self = this;
-        self.dMaxTurnRate = val;
+        this.dMaxTurnRate = val;
     },
     /**
      * 实体旋转到朝向目标
