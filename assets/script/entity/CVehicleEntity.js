@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 16:02:28
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 20:17:53
+ * Last Modified: 2019-01-26 10:41:02
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -75,7 +75,7 @@ cc.Class({
         self.pos().addSelf(_out);
         self.node.setPosition(self.pos());
 
-        if (self.velocity().magSqr() > 0.00000001) {
+        if (self.velocity().magSqr() > 0.01) {
             _out = self.velocity().normalize();
             self.setHeading(_out);
         }

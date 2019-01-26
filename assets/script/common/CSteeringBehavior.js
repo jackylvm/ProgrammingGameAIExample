@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 18:16:13
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 20:15:43
+ * Last Modified: 2019-01-26 10:45:03
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -24,7 +24,7 @@ import {
 
 var WANDER_RADIUS = 8;
 var WANDER_DISTANCE = 20.0;
-var WANDER_JITTER_PER_SEC = 80.0;
+var WANDER_JITTER_PER_SEC = 160.0;
 var WAY_POINT_SEEK_DIST = 20;
 
 cc.Class({
@@ -603,7 +603,6 @@ cc.Class({
         }
 
         var _magnitudeToAdd = forceToAdd.mag();
-
         if (_magnitudeToAdd < _magnitudeRemaining) {
             sf.addSelf(forceToAdd);
         } else {
@@ -662,7 +661,6 @@ cc.Class({
 
         var _lookAheadTime = _toPursuer.mag() / (self._vehicle.maxSpeed() + pursuer.maxSpeed());
         var _tmp = pursuer.velocity().mul(_lookAheadTime);
-        cc.log("evade", _tmp);
         return self.flee(pursuer.pos().add(_tmp));
     },
     arrive(target, deceleration) {
@@ -672,7 +670,7 @@ cc.Class({
         var _toTarget = target.sub(_pos);
 
         var _dist = _toTarget.mag();
-        if (0 < _dist) {
+        if (0.01 < _dist) {
             var _decelerationTweaker = 0.3;
             var _speed = _dist / (deceleration * _decelerationTweaker);
             _speed = Math.min(_speed, self._vehicle.maxSpeed());
