@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 16:02:28
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-26 11:58:58
+ * Last Modified: 2019-01-26 14:39:12
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -139,6 +139,11 @@ cc.Class({
             case EnumBehaviorType.OFFSET_PURSUIT:
                 {
                     self._steering.offsetPursuitOn(target1, offset);
+                }
+                break;
+            case EnumBehaviorType.OBSTACLE_AVOIDANCE:
+                {
+                    self._steering.obstacleAvoidanceOn(target1, offset);
                 }
                 break;
             default:
