@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 16:02:28
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-26 10:41:02
+ * Last Modified: 2019-01-26 11:58:58
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -28,15 +28,31 @@ cc.Class({
         bSmoothingOn: false,
         vehicleVB: []
     },
-    initVehicleEntity(world, position, rotation, velocity, mass, maxForce, maxSpeed, maxTurnRate, scale) {
+    initVehicleEntity(
+        world,
+        position,
+        rotation,
+        velocity,
+        mass,
+        maxForce,
+        maxSpeed,
+        maxTurnRate
+    ) {
         var self = this;
 
         self._world = world;
 
-        //Math.sin(rotation), -Math.cos(rotation)
-        self.initMovingEntity(position, scale, velocity, maxSpeed,
-            new cc.v2(0, 1), mass,
-            new cc.v2(scale, scale), maxTurnRate, maxForce)
+        self.initMovingEntity(
+            position, //pos
+            1, //radius
+            velocity, //velocity
+            maxSpeed, //maxSpeed
+            new cc.v2(Math.sin(rotation), Math.cos(rotation)), //heading
+            mass, //mass
+            new cc.v2(1, 1), //scale
+            maxTurnRate, //maxTurnRate
+            maxForce //maxForce
+        )
 
         self._steering = new CSteeringBehavior();
         self._steering.init(self);
@@ -83,8 +99,7 @@ cc.Class({
         self.node.setScale(self.scale().x, self.scale().y);
     },
     timeElapsed() {
-        var self = this;
-        return self.dTimeElapsed;
+        return this.dTimeElapsed;
     },
     changeBehavior(behavior, target1 = null, target2 = null, offset = null) {
         var self = this;

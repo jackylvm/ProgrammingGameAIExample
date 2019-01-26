@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 18:05:33
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2018-12-29 01:25:03
+ * Last Modified: 2019-01-26 11:36:45
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -44,10 +44,10 @@ _enum.EnumDeceleration = cc.Enum({
     SLOW: 3,
 });
 _enum.EnumConst = cc.Enum({
-    PI: 3.1415926,
-    TWO_PI: 3.1415926 * 2,
-    HALF_PI: 3.1415926 / 2,
-    QUARTER_PI: 3.1415926 / 4,
-    DEGREE_ONE: 180 / 3.1415926,
+    PI: Math.PI,
+    TWO_PI: Math.PI * 2,
+    HALF_PI: Math.PI / 2,
+    QUARTER_PI: Math.PI / 4,
+    DEGREE_ONE: 180 / Math.PI,
     MAX_DOUBLE: Number.MAX_VALUE,
 });

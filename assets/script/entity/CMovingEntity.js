@@ -3,7 +3,7 @@
  * File Created: 2018-12-19 14:29:07
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-26 11:01:53
+ * Last Modified: 2019-01-26 11:48:55
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -30,7 +30,17 @@ cc.Class({
         dMaxForce: 0,
         dMaxTurnRate: 0
     },
-    initMovingEntity(pos, radius, velocity, maxSpeed, heading, mass, scale, maxTurnRate, maxForce) {
+    initMovingEntity(
+        pos,
+        radius,
+        velocity,
+        maxSpeed,
+        heading,
+        mass,
+        scale,
+        maxTurnRate,
+        maxForce
+    ) {
         var self = this;
 
         self.initBaseGameEntity(pos, radius);

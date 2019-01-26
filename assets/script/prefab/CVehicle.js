@@ -3,7 +3,7 @@
  * File Created: 2018-12-18 19:52:15
  * Author: Jacky (jackylvm@foxmail.com>)
  * -----
- * Last Modified: 2019-01-25 18:38:41
+ * Last Modified: 2019-01-26 12:01:09
  * Modified By: Jacky (jackylvm@foxmail.com>)
  * -----
  * Copyright 2018 上海火刀石网络科技有限公司
@@ -34,12 +34,33 @@ cc.Class({
         vehicleSize: 12
     },
 
-    initVehicle(world, size = 12) {
+    /**
+     * 初始化实体相关参数
+     * @param {CWorld} world 游戏世界
+     * @param {int} size 绘制图形的大小
+     * @param {Vec2} position 初始位置
+     * @param {Number} rotation 初始旋转,也可以说是初始化朝向
+     * @param {Vec2} velocity 初始速度
+     * @param {int} mass 实体质量
+     * @param {int} maxForce 实体最大受力
+     * @param {int} maxSpeed 实体最大速度
+     * @param {int} maxTurnRate 实体最大旋转速率(单位:弧度/每秒)
+     */
+    initVehicle(
+        world,
+        size = 12,
+        position = cc.v2(0, 0),
+        rotation = 0,
+        velocity = cc.v2(0, 0),
+        mass = 1,
+        maxForce = 100,
+        maxSpeed = 150,
+        maxTurnRate = 60
+    ) {
         var self = this;
 
         self.vehicleSize = size;
-
-        self.initVehicleEntity(world, new cc.v2(0, 0), EnumConst.HALF_PI, new cc.v2(0, 0), 1, 100, 120, 60, 1);
+        self.initVehicleEntity(world, position, rotation, velocity, mass, maxForce, maxSpeed, maxTurnRate);
     },
     // LIFE-CYCLE CALLBACKS:
     // onLoad() {},
