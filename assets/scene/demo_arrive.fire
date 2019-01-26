@@ -420,7 +420,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 195.57,
+      "width": 302.21,
       "height": 40
     },
     "_anchorPoint": {
@@ -466,8 +466,8 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "行为:Arrive",
-    "_N$string": "行为:Arrive",
+    "_string": "行为:Arrive(抵达)",
+    "_N$string": "行为:Arrive(抵达)",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,

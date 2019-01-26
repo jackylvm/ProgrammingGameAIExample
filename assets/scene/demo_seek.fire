@@ -420,7 +420,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 182.29,
+      "width": 288.93,
       "height": 40
     },
     "_anchorPoint": {
@@ -466,8 +466,8 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "行为:Seek",
-    "_N$string": "行为:Seek",
+    "_string": "行为:Seek(靠近)",
+    "_N$string": "行为:Seek(靠近)",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,

@@ -44,8 +44,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1.3073850289240891,
-      "y": 1.3073850289240891,
+      "x": 0.6720703125,
+      "y": 0.6720703125,
       "z": 1
     },
     "_quat": {
@@ -420,7 +420,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 240,
+      "width": 322.25,
       "height": 80
     },
     "_anchorPoint": {
@@ -466,8 +466,8 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "行为:Pursuit\n鼠标点击开始",
-    "_N$string": "行为:Pursuit\n鼠标点击开始",
+    "_string": "行为:Pursuit(追逐)\n鼠标点击开始",
+    "_N$string": "行为:Pursuit(追逐)\n鼠标点击开始",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,

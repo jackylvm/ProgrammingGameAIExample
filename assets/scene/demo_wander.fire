@@ -297,7 +297,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 229.69,
+      "width": 336.33,
       "height": 40
     },
     "_anchorPoint": {
@@ -343,8 +343,8 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "行为:Wander",
-    "_N$string": "行为:Wander",
+    "_string": "行为:Wander(徘徊)",
+    "_N$string": "行为:Wander(徘徊)",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
